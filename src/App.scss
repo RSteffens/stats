@@ -1,0 +1,326 @@
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  text-align: center;
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+document {
+  font-size: 12px;
+}
+
+.division-box {
+  display: grid;
+  grid-template-columns: 1.5fr minmax(300px,1fr) minmax(300px,1fr);
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  min-width: 800px;
+  max-width: 1600px;
+  padding: 10px;
+  margin: auto;
+}
+
+.choices {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.support {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.basics {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.equipment {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.combat {
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.terrain {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+@media (max-width: 900px) {
+  .division-box {
+    grid-template-columns: 1fr 1fr;
+    min-width: inherit;
+  }
+  .choices {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  .support {
+    grid-row-start: 1;
+    grid-column-start: 2;
+  }
+  .basics {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+  .equipment {
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+  .combat {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
+  .terrain {
+    grid-row-start: 3;
+    grid-column-start: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .division-box {
+    grid-template-columns: 1fr;
+    min-width: inherit;
+  }
+  .choices {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  .support {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+  .basics {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
+  .equipment {
+    grid-row-start: 4;
+    grid-column-start: 1;
+  }
+  .combat {
+    grid-row-start: 5;
+    grid-column-start: 1;
+  }
+  .terrain {
+    grid-row-start: 6;
+    grid-column-start: 1;
+  }
+}
+
+.bonus {
+  color: #080;
+}
+
+.penalty {
+  color: #800;
+}
+
+.support {
+  .list {
+    columns: 2;
+  }
+  label {
+    margin: 0;
+  }
+}
+
+.disabled_company {
+  color: #888;
+}
+
+.division-box {
+  ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .terrain > table > {
+    thead > tr > th {
+      text-align: center;
+    }
+    tbody > tr > td {
+      width: 25%;
+      text-align: center;
+    }
+  }
+}
+
+.unit-select {
+  display: flex;
+  input[type=number] {
+    flex-grow: 0;
+  }
+}
+
+input, select {
+  flex-grow: 1;
+  background-color: #fff;
+  color: #495057;
+}
+
+input {
+  &[type=text] {
+    width: 100%;
+  }
+  &[type=number] {
+    width: 60px;
+    margin-right: 5px;
+    text-align: right;
+  }
+}
+
+select {
+  width: 100%;
+  border-radius: 5px;
+  height: 28px;
+  border: 1px solid #ced4da;
+}
+
+/* Shouldn't bootstrap handle this? */
+
+.checkbox {
+  label input {
+    margin-right: 5px;
+  }
+  &.disabled label {
+    color: #ccc;
+  }
+}
+
+.mod-selector {
+  text-align: center;
+  button {
+    margin: 5px;
+  }
+}
+
+.stat {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  &:hover .stat-name {
+    font-weight: bold;
+  }
+}
+
+.stat-tooltip {
+  position: absolute;
+  padding: 5px;
+  top: 25px;
+  right: 0px;
+  background-color: white;
+  border: 1px solid black;
+  z-index: 1;
+  display: none;
+}
+
+.stat:hover .stat-tooltip {
+  display: block;
+}
+
+.stat-tooltip table {
+  margin-left: auto;
+}
+
+.equipment-list {
+  li {
+    display: block;
+    display: block;
+  }
+  .equipment-count {
+    display: flex;
+    justify-content: space-between;
+  }
+  .upgrade {
+    text-align: right;
+    input {
+      margin-left: 5px;
+    }
+  }
+}
+
+.substat-value {
+  text-align: right;
+}
+
+.terrain-cell {
+  position: relative;
+  &:hover {
+    .stat-value {
+      font-weight: bold;
+    }
+    .stat-tooltip {
+      display: block;
+      text-align: left;
+    }
+  }
+  .stat-tooltip div {
+    white-space: nowrap;
+  }
+}
+
+.substat-name {
+  white-space: nowrap;
+}
+
+.save-and-load-controls {
+  text-align: center;
+  button {
+    margin: 5px;
+  }
+  select {
+    max-width: 300px;
+  }
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-space {
+  flex-grow: 1;
+}
+
+footer {
+  text-align: center;
+  background-color: #222;
+  min-height: 50px;
+  padding: 10px;
+  color: white;
+}
